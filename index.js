@@ -9,8 +9,18 @@ function nowServing(katzDeliLine){
 
 function currentLine(katzDeliLine){
     var string = "The line is currently: "
-    for (var i = 0; i < katzDeliLine.length-1; i++){
-       string += `${i+1}. ${katzDeliLine[i]}, `
+
+    if (katzDeliLine.length === 0) {
+      return "The line is currently empty."
     }
+    
+    for (var i = 0; i < katzDeliLine.length-1; i++){
+      if (i === katzDeliLine.length-2){
+        string += `${i+1}. ${katzDeliLine[i]} `
+      } else {
+        string += `${i+1}. ${katzDeliLine[i]}, `
+      }
+    }
+
     return string;
 }
